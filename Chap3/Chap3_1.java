@@ -1,10 +1,14 @@
 package Chap3;
 
-public class Lect3_1 {
+public class Chap3_1 {
     public static void main(String[] args) {
         byte b = 127;
         short a = b;
         b =  (byte) 130;
+        byte c = 12;
+        byte d = 13;
+//        byte e = d + c; // Will not work. as max(int , type of a, type of b) = int. Hence, We will have to do explicit type casting.
+
         System.out.println(b);
     }
 }
@@ -41,7 +45,12 @@ class DataTypes{
 }
 
 class typeCasting{
+    int x , y=1, z;
     public static void main(String[] args) {
+    byte a = 6;
+//  a = a + 1; //⇒ will not work as we are adding integer to byte.
+    a++; // ⇒ will work as the compiler does the casting for us.
+    a += 7;
     byte b = 7;
 //    b = b + 7;
     b += 7;

@@ -55,7 +55,7 @@ class ObjectCounter{
     }
 
     public ObjectCounter(int i){
-        this(10f);
+        this((float)i);
         System.out.println("Inside arg constructor with INT value " + i);
     }
 

@@ -1,6 +1,6 @@
 package Chap3;
 
-public class Lect3_2_PassByValueAndReference {
+public class Chap3_2_PassByValueAndReference {
     private static void modifiedScore(int score){
         score = score + 2;
         System.out.println("Modified score in calling method = " + score);
