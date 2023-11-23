@@ -10,8 +10,10 @@ public class Chap3_3_Heap_Stack {
         float f = 10_00.00_1f;
         int bin = 0B101010;
         int octal = 01117;
-        int a = 0X1237AF;
+        int a = 0X12_37AF;
         float d = 10.0f;
+        int i5 = 0B10_1010;
+        int i6 = 0x2_a;
 
 //      Even if a number is decimal, it is by default assigned to double type, despite saving it into float.
 //      But if you want to save it in float, you must give "f" or "F" at the end of the decimal number
