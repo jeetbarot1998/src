@@ -1,6 +1,7 @@
 package Chap3;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 public class Chap3_5 {
@@ -90,7 +91,6 @@ class TestSpecial {
         int[][] shallowCopy = originalArray.clone(); // Shallow copy (references are copied)
 
         originalArray[0][0] = 99; // Modifying the original array
-        originalArray[2] = new int[]{5, 6};
         System.out.println(Arrays.deepToString(shallowCopy)); // Output: [[99, 2], [3, 4]] - Reflects changes made in originalArray
 
     }
@@ -100,6 +100,19 @@ class Test35 {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException {
         Object obj = Class.forName("Chap3.Employee1").newInstance();
         System.out.println(obj.getClass().getName());
+        Method[] declaredMethods = obj.getClass().getDeclaredMethods();
+        Method m1 = null;
+        for( Method m: declaredMethods){
+            if(m.getName().equals("getSalary")){
+                m.setAccessible(false);
+                m1 = m;
+            }
+        }
+
+        Employee1 operationInstance = new Employee1();
+        System.out.println(m1.invoke(operationInstance));
+        System.out.println(m1.getName());
+
     }
 }
 

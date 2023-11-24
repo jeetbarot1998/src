@@ -34,6 +34,11 @@ public class Chap3_3_Heap_Stack {
 //      byte e = a2 + a3; // Will not work. as max(int , type of a2, type of a3) = int. Hence, We will have to do explicit type casting.
         byte e = (byte) (a2 + a3);
         long l1 = 2192819;
+        long wt = 1200;
+        Long weight = 1200L; // you will have to add "L"
+        double d0 = 1200; // you will have to add "D"
+        Double d1 = 1200D; // you will have to add "D"
+
     }
 }
 
