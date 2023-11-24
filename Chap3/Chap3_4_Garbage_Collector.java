@@ -1,6 +1,6 @@
 package Chap3;
 
-public class Chap3_4 {
+public class Chap3_4_Garbage_Collector {
 }
 
 class Mixer {
