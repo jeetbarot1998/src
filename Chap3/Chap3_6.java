@@ -59,3 +59,26 @@ class Icelandic extends Horse{
 //  4 objects are eligible for garbage collection. 2 of i2 and 2 of i3.
 }
 
+class A36{
+
+    void change(Integer a){
+        System.out.println(a);
+        a = a + 1;
+        System.out.println(a);
+    }
+    public static void main(String[] args) {
+//        Integer locala = 10;
+//        int b = 10;
+//        A36 a = new A36();
+//        System.out.println(locala);
+//        System.out.println(b);
+//        a.change(b);
+//        a.change(locala);
+//        System.out.println(locala);
+//        System.out.println(b);
+        double x = 0X0001;
+        System.out.println(x);
+    }
+}
+
+
