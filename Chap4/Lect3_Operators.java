@@ -86,7 +86,7 @@ class BitwiseOperator{
         System.out.println(a2 + b2);
 
 
-//      Due to double "||" operator, 2nd condition will be checked unconditionally.
+//      Due to double "||" operator, if 1st condition is true, 2nd condition will not be checked.
         int a1 = 10;
         int b1 = 15;
         if(++a1 <10 || ++b1>15){
