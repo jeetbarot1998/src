@@ -150,6 +150,13 @@ class Titanic{
         if(true);
         else;
 
+//      ==================
+        System.out.println("There cannot be any statement between if and else");
+//        if(true);
+//        System.out.println("HI");
+//        else;
+
+
 //      ======== Declaration not allowed here =========
         System.out.println("Declaration not allowed here");
 //        first line cannot be declarative in
@@ -271,8 +278,24 @@ class SwitchCase{
 
 
 //      ===================
-        System.out.println("Legal");
+        System.out.println("Legal switch empty");
         switch (x){}
+
+
+//      ===================
+        System.out.println("Legal switch only default");
+        switch (x){
+            default:
+        }
+
+
+//      ===================
+        System.out.println("Legal switch default");
+        switch (x){
+            case 1:
+        }
+
+
 
 //      ======== Illegal ===========
         System.out.println("Illegal");
