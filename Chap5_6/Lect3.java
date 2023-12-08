@@ -105,7 +105,6 @@ class Plane {
         }
     }
 
-
     void s2() throws Exception {
         s3();
         s += "2";
@@ -126,29 +125,5 @@ class Boeing extends Plane{
     }
 }
 
-
-/*
-{
-    fname: string,
-    sname: string,
-    id: number,
-    phone: number,
-    address: string,
-    pin_code: number,
-    card_details: string,
-}
-https://api.endpoint/get_name =>
-https://api.endpoint/get_add =>
-https://api.endpoint/get_add_name =>
-https://api.endpoint/get_add_pincode =>
-https://api.endpoint/get_add_phone =>
-https://api.endpoint/all => fn,sn,id,pn,ad,pnc,cd
-
-
-
-
-
-
- */
 
 
