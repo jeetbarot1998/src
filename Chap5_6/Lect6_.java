@@ -206,12 +206,171 @@ class TwoDArray{
 
 
 class BreakAndContinue{
+    static int x = 10;
     public static void main(String[] args) {
         System.out.println("Break and Continue are Always used in either switch case or loops");
-        
 
+        System.out.println("Label Example");
+        BreakAndContinue bc =  new BreakAndContinue();
+        bc.LabeledBreak1();
+        bc.LabeledBreak2();
+        bc.LabeledContinue1();
+        bc.LabeledContinue2();
+        System.out.println("For Switch case");
+        bc.BreakEx2(5D);
+    }
+
+    void BreakEx() {
+//        if(x==10){
+//            break;
+//        }
+//        System.out.println("Hello");
+    }
+    void BreakEx2(Double b){
+        System.out.println("Incompatible types. Found: 'boolean', required: 'char, byte, short, int, Character, Byte, Short, Integer, String, or an enum'");
+//        switch (b){
+//            case true:
+//                System.out.println("true");
+//                break;
+//            case false:
+//                System.out.println("false");
+//                break;
+//        }
+    }
+
+    void BreakEx3(){
+        m:{
+            int x = 10;
+            System.out.println("Begin");
+            if(x==10){
+                break m;
+            }
+            System.out.println("End");
+        }
+        System.out.println("Hello");
+    }
+
+    void BreakEx4(){
+//        m:{
+//            int x = 10;
+//            System.out.println("Begin");
+//            if(x==10){
+//                continue m;
+//            }
+//            System.out.println("End");
+//        }
+//        System.out.println("Hello");
+    }
+
+    void LabeledBreak1(){
+        System.out.println("Unlabeled Break");
+        l1:{
+            for(int i = 0 ;i < 3; i++){
+                m:{
+                    for (int j = 0; j<3; j++){
+                        if(i==j){
+                            break;
+                        }
+                        System.out.println("i : " + i + ", j : " + j);
+                    }
+                }
+            }
+        }
+    }
+
+    void LabeledBreak2(){
+        System.out.println("Labeled Break");
+        l1:{
+            for(int i = 0 ;i < 3; i++){
+                m:{
+                    for (int j = 0; j<3; j++){
+                        if(i==j){
+                            break l1;
+                        }
+                        System.out.println("i : " + i + ", j : " + j);
+                    }
+                }
+            }
+        }
+    }
+
+    void LabeledContinue1(){
+        System.out.println("Unlabeled Continue");
+        l1:{
+            for(int i = 0 ;i < 3; i++){
+                m:{
+                    for (int j = 0; j<3; j++){
+                        if(i==j){
+                            continue;
+                        }
+                        System.out.println("i : " + i + ", j : " + j);
+                    }
+                }
+            }
+        }
+    }
+
+    void LabeledContinue2(){
+        System.out.println("Labeled Continue");
+        System.out.println("cannot have a labeled continue");
+//        l1:{
+//            for(int i = 0 ;i < 3; i++){
+//                m:{
+//                    for (int j = 0; j<3; j++){
+//                        if(i==j){
+//                            continue l1;
+//                        }
+//                        System.out.println("i : " + i + ", j : " + j);
+//                    }
+//                }
+//            }
+//        }
     }
 }
+
+
+
+class LoopLabelExample {
+    public static void main(String[] args) {
+        outerLoop:
+        for (int i = 1; i <= 3; i++) {
+            System.out.println("Outer Loop Iteration: " + i);
+
+            innerLoop:
+            for (int j = 1; j <= 3; j++) {
+                System.out.println("Inner Loop Iteration: " + j);
+
+                if (i == 2 && j == 2) {
+                    System.out.println("Breaking out of both loops");
+                    break outerLoop;  // Breaks out of the outer loop
+                }
+
+                if (i == 1 && j == 1) {
+                    System.out.println("Skipping inner loop iteration");
+                    continue innerLoop;  // Skips the current iteration of the inner loop
+                }
+            }
+        }
+    }
+}
+
+
+    class DoWhileAndContinue{
+        public static void main(String[] args) {
+            int x = 0;
+            do{
+                x++;
+                System.out.println(x);
+                if(++x<5){
+                    continue;
+                }
+                x++;
+                System.out.println(x);
+            }
+            while (++x<10);
+
+        }
+    }
 
 
 
