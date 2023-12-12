@@ -4,9 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Lect6_ {
+public class Lect6_Break_Continue {
 }
-
 
 class Baap{
     public int h = 4;
@@ -198,9 +197,6 @@ class TwoDArray{
         }
 
         Iterable [] it ={new HashSet(2), new ArrayList(4)};
-
-
-
     }
 }
 
@@ -354,24 +350,18 @@ class LoopLabelExample {
     }
 }
 
-
-    class DoWhileAndContinue{
-        public static void main(String[] args) {
-            int x = 0;
-            do{
-                x++;
-                System.out.println(x);
-                if(++x<5){
-                    continue;
-                }
-                x++;
-                System.out.println(x);
+class DoWhileAndContinue{
+    public static void main(String[] args) {
+        int x = 0;
+        do{
+            x++;
+            System.out.println(x);
+            if(++x<5){
+                continue;
             }
-            while (++x<10);
-
+            x++;
+            System.out.println(x);
         }
+        while (++x<10);
     }
-
-
-
-
+}
