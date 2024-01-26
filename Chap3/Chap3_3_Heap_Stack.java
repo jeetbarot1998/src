@@ -8,9 +8,9 @@ public class Chap3_3_Heap_Stack {
 //        int x , y= x + 1, z; // will not work as x is not given default value in local variables.
         int sal = 100_00_000;
         float f = 10_00.00_1f;
-        int bin = 0B101010;
+        int binary = 0B101010;
         int octal = 01117;
-        int a = 0X12_37AF;
+        int hexaDecimal = 0X12_37AF;
         float d = 10.0f;
         int i5 = 0B10_1010;
         int i6 = 0x2_a;
@@ -39,6 +39,12 @@ public class Chap3_3_Heap_Stack {
         double d0 = 1200; // you will have to add "D"
         Double d1 = 1200D; // you will have to add "D"
 
+        boolean bb;
+        if(bb = true){
+            System.out.println(bb);
+        }
+        int j,k = 1;
+        System.out.println(k);
     }
 }
 
@@ -169,5 +175,29 @@ class Test3{
         System.out.println(t2.t.val);
         System.out.println(t3.t.val);
         System.out.println(t4.t.val);
+    }
+}
+
+
+class Layout1 { // class
+    static {
+        System.out.println("Layout1.s "+ Layout1.s);
+        Layout1.s = 9;
+    }
+    static int s = 343; // static variable
+    int x; // instance variable
+    { x = 7; int x2 = 5; } // initialization block
+    Layout1() { x += 8; int x3 = 6;} // constructor
+    void doStuff() { // method
+        int y = 0; // local variable
+        for(int z = 0; z < 4; z++) { // 'for' code block
+            y += z + x;
+        }
+    }
+
+    public static void main(String[] args) {
+        Layout1 l = new Layout1();
+        System.out.println(l.x);
+        System.out.println(s);
     }
 }

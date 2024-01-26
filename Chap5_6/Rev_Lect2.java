@@ -1,6 +1,11 @@
 package Chap5_6;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Rev_Lect2 {
+
+    static char ch;
     public static void main(String[] args) {
         int val = 33;
         if(val >= 0){
@@ -25,6 +30,23 @@ public class Rev_Lect2 {
             System.out.println("dog");
         }
         System.out.println("---");
+
+
+        Object o = new Rev_Lect2[5];
+//        System.out.println(Arrays.toString(o));
+        Rev_Lect2 [] x = (Rev_Lect2[]) o;
+        System.out.println(Arrays.toString(x));
+        System.out.println(ch);
+        String s = "ABC";
+//        System.out.println(s.charAt(s.length()));
+        s.substring(0);
+        StringBuffer sb = new StringBuffer("abc");
+        StringBuffer sb1 = sb.append("abc");
+        System.out.println(sb1);
+
+        ArrayList al = new ArrayList ();
+        Double  d = 10D;
+
     }
 }
 
@@ -94,6 +116,10 @@ class SwitchStatements{
             case 10:
             case 1000:
         }
+
+        Integer a = 1;
+        int a1 =1;
+        System.out.println(a==a1);
     }
 
     static void SwitchColor(){

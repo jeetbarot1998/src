@@ -4,18 +4,27 @@ public class Chap3_4_Garbage_Collector {
 }
 
 class Mixer {
+    static float a;
     Mixer() { }
     Mixer(Mixer m) { m1 = m; }
     Mixer m1;
     public static void main(String[] args) {
-        Mixer m2 = new Mixer();
-//        m2.m1.go();
-        Mixer m3 = new Mixer(m2);
-        m3.go();
-        Mixer m4 = m3.m1;
-        m4.go();
-        Mixer m5 = m2.m1;
-        m5.go();
+//        Mixer m2 = new Mixer();
+////        m2.m1.go();
+//        Mixer m3 = new Mixer(m2);
+//        m3.go();
+//        Mixer m4 = m3.m1;
+//        m4.go();
+//        Mixer m5 = m2.m1;
+//        m5.go();
+        System.out.println(a);
+        int x = 10;
+        int y = 20;
+        int z = 30;
+        System.out.println(x+y);
+        System.out.println(x+y%z);
+
+
     }
     void go() { System.out.print("hi "); }
 }
