@@ -120,6 +120,4 @@ class BigBang11 extends Bang11{
     public static void main(String[] args) {
         Bang11 mc = new BigBang11(10);
     }
-
 }
-

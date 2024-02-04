@@ -1,7 +1,5 @@
 package OCA_Dumps;
-
 import java.util.Arrays;
-
 public class Q12 {
 }
 
