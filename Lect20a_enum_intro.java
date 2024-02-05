@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Lect20a_enum_intro {
 }
 
@@ -66,7 +68,7 @@ class TestEmployee20{
 //      Array/collection of type RideCategory.
         RideCategory[] rcategory = RideCategory.values();
 //      View all the constants in an enum.
-        System.out.println(RideCategory.values());
+        System.out.println(Arrays.toString(RideCategory.values()));
 
         for(RideCategory rc:rcategory){
 //          .name() function is inside the enum class and hence we can directly get the name of the constants
