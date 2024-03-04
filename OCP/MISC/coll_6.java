@@ -133,7 +133,7 @@ class SortedSetDemo{
     }
 }
 
-    class NavigableSetDemo{
+class NavigableSetDemo{
     public static void main(String[] args) {
         TreeSet <Integer> t = new TreeSet<Integer>();
         t.add(100);
