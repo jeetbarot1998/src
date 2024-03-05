@@ -13,7 +13,7 @@ class CollectionsEx08{
         al.add("D");
         al.add("B");
 //        al.add(1); // CCE
-        al.add(null); // Null Point Exception.
+//        al.add(null); // Null Point Exception.
         System.out.println("Before sort: " + al);
         Collections.sort(al);
         System.out.println("After sort: " + al);
@@ -184,7 +184,9 @@ class ArrayToListEx1{
 class BackedCollection{
     public static void main(String[] args) {
         TreeMap<String, String> map = new TreeMap<String, String>();
-        map.put("a", "ant"); map.put("d", "dog"); map.put("h", "horse");
+        map.put("a", "ant");
+        map.put("h", "horse");
+        map.put("d", "dog");
         SortedMap<String, String> submap;
         submap = map.subMap("b", "g"); // #1 create a backed collection
         System.out.println(map + " " + submap); // #2 show contents
@@ -193,5 +195,22 @@ class BackedCollection{
         map.put("r", "raccoon"); // #5 add to original - out of range
 //        submap.put("p", "pig"); // #6 add to copy - out of range
         System.out.println(map + " " + submap); // #7 show final contents
+    }
+}
+
+
+class Person80{
+    private int id;
+
+    public Person80(int id) {
+        this.id = id;
+    }
+}
+
+class test81{
+    public static void main(String[] args) {
+        Person80 p1 = new Person80(1);
+        Person80 p2 = new Person80(2);
+        Person80 p3 = new Person80(3);
     }
 }
