@@ -4,12 +4,21 @@ import java.util.*;
 
 public class coll_6 {
     public static void main(String[] args) {
-        Map m = new HashMap();
-        m.put("D",3);
-        m.put("A",1);
-        m.put("E",9);
-        m.put("B",2);
-        m.put("C",1);
+        Map<String, Integer> m = new HashMap<>();
+        m.put("D", 3);
+        m.put("A", 1);
+        m.put("E", 9);
+        m.put("B", 2);
+        m.put("C", 1);
+
+        Map<String, Integer> result = new HashMap<>();
+        m.forEach((key, value) -> {
+            if (key.equals("E")) {
+                result.put(key, value);
+            }
+        });
+
+        System.out.println("Result Map: " + result);
         Set set = m.keySet();
         System.out.println(set);
         Collection values = m.values();
@@ -28,6 +37,10 @@ public class coll_6 {
         System.out.println("============= USING For Loops. ============= ");
         for (Iterator it = m.entrySet().iterator(); it.hasNext(); ) {
             Map.Entry entry = (Map.Entry) (it.next());
+            System.out.println("KEY : " + entry.getKey() + " VALUE : " + entry.getValue());
+        }
+
+        for(Map.Entry<String,Integer> entry: m.entrySet()){
             System.out.println("KEY : " + entry.getKey() + " VALUE : " + entry.getValue());
         }
     }
