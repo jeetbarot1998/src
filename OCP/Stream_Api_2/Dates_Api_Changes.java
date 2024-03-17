@@ -1,7 +1,8 @@
 package OCP.Stream_Api_2;
 
 import java.time.*;
-import java.util.Arrays;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
@@ -89,9 +90,31 @@ class Date_Api_Changes_Local_Date_Time{
         LocalDateTime ldt_zone = LocalDateTime.now(z_id);
         System.out.println("ldt_zone : " + ldt_zone);
 
-//        ================ Constructor ================
+        System.out.println("plusDays : " + ldt.plusDays(10));
+        System.out.println("plusHours : " + ldt.plusHours(10));
+        System.out.println("plusWeeks : " + ldt.plusWeeks(10));
 
+    }
+}
 
+class PeriodDemo{
+    public static void main(String[] args) {
+        LocalDate ld4 = LocalDate.of(1947, Month.AUGUST, 15);
+        LocalDate ld5 = LocalDate.of(1940, Month.SEPTEMBER, 9);
+        LocalDate ld6 = ld4.plus(80, ChronoUnit.YEARS);
+        Period diff = Period.between(ld4,ld6);
+        System.out.println(diff);
+        System.out.println(diff.getDays() + diff.getMonths()*30 + diff.getYears()*365);
+        System.out.println(Period.between(ld5,ld4));
+
+        LocalDate dt = LocalDate.parse("2022-05-10");
+//        LocalDate dt1 = LocalDate.parse("05-10-2022"); // runtime error
+        DateTimeFormatter dtfm = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate myDate = LocalDate.parse("23-03-2022", dtfm);
+        System.out.println(myDate);
+
+        LocalTime lte = LocalTime.parse("11:43:55");
+//        LocalTime lte1 = LocalTime.parse("11:43:65"); // RTE as 65 seconds do not exists
     }
 }
 
