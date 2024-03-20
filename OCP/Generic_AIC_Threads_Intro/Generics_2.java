@@ -1,6 +1,6 @@
 package OCP.Generic_AIC_Threads_Intro;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Generics_2 {
 }
