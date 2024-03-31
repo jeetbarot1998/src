@@ -1,10 +1,11 @@
 package OCP.Concurrency;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Concurrency_5 {
 }
@@ -144,13 +145,135 @@ class ConcurrentHashMapExample5_4 {
         System.out.println("=========== put ==========");
         map.put("One", 11);
         System.out.println(" put(\"One\", 11) : "+ map);
-
-
     }
 }
 
+class UserBankAccount{
+    private int balance = 10000;
+    public void deposit(int amt){balance += amt;}
+    public void withdraw(int amt){balance -= amt;}
+    int getBalance(){return balance;}
+    public Lock myLock = new ReentrantLock();
+}
 
+class Concurrency_53{
 
+    void fetchLock(UserBankAccount acc1, UserBankAccount acc2){
+        while (true){
+            boolean gotLock1 = false;
+            boolean gotLock2 = false;
+            try {
+                gotLock1 = acc1.myLock.tryLock();
+                gotLock2 = acc2.myLock.tryLock();
+            }
+            finally {
+                if(gotLock1 & gotLock2){
+                    return;
+                }
+                if(gotLock1){
+                    acc1.myLock.unlock();
+                }
+                if(gotLock2){
+                    acc2.myLock.unlock();
+                }
+            }
+        }
+    }
+
+    void firstThread(UserBankAccount acc1, UserBankAccount acc2){
+        Random r = new Random();
+        for (int i = 0;i<10000; i++){
+            try{
+                fetchLock(acc1,acc2);
+                int amount = r.nextInt(100);
+                acc1.withdraw(amount);
+                acc2.deposit(amount);
+            }
+            finally {
+                acc1.myLock.unlock();
+                acc2.myLock.unlock();
+            }
+        }
+    }
+    void secondThread(UserBankAccount acc1, UserBankAccount acc2){
+        Random r = new Random();
+        for (int i = 0;i<10000; i++){
+            try{
+                fetchLock(acc1,acc2);
+                int amount = r.nextInt(100);
+                acc2.withdraw(amount);
+                acc1.deposit(amount);
+            }
+            finally {
+                acc1.myLock.unlock();
+                acc2.myLock.unlock();
+            }
+        }
+    }
+
+    void finished(UserBankAccount acc1, UserBankAccount acc2){
+        System.out.println("acc1 balance = " + acc1.getBalance());
+        System.out.println("acc2 balance = " + acc2.getBalance());
+        System.out.println(acc1.getBalance() + acc2.getBalance() + " == Balance ");
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        UserBankAccount acc1 = new UserBankAccount();
+        UserBankAccount acc2 = new UserBankAccount();
+        Concurrency_53 runner = new Concurrency_53();
+        Thread t1 = new Thread(() ->{
+            try {
+                runner.firstThread(acc1, acc2);
+            }
+            catch (Exception e){
+            }
+        });
+        Thread t2 = new Thread(() ->{
+            try {
+                runner.secondThread(acc1, acc2);
+            }
+            catch (Exception e){
+            }
+        });
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+        runner.finished(acc1,acc2);
+    }
+}
+
+class Concurrent_HM_52 extends Thread{
+    static ConcurrentHashMap <Integer, String> m =  new ConcurrentHashMap();
+
+    @Override
+    public void run() {
+        try{
+            Thread.sleep(2000);
+        }
+        catch (Exception e){
+        }
+        System.out.println("Child thread updating the map");
+        m.put(100, "A");
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        m.put(110,"C");
+        m.put(103,"B");
+        Concurrent_HM_52 t = new Concurrent_HM_52();
+        t.start();
+        Set m1 = m.entrySet();
+        Iterator it = m1.iterator();
+        while (it.hasNext()){
+            Map.Entry each_entry = (Map.Entry) it.next();
+            System.out.println("Main thread current value = { " + each_entry.getKey() + " : " + each_entry.getValue() + " }");
+            Thread.sleep(4000);
+            System.out.println("Main thread after sleeping \n" +
+                    "current value = { " + each_entry.getKey() + " : " + each_entry.getValue() + " }");
+        }
+        System.out.println("Outside iterator : " + m);
+    }
+}
 
 
 
