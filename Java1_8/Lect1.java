@@ -1,6 +1,5 @@
 package Java1_8;
 
-
 @FunctionalInterface
 interface MyFunctionalInterface {
     void myMethod();
