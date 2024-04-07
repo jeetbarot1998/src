@@ -1,4 +1,4 @@
-package OCP.Concurrency;
+package OCP.Concurrency_2;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -6,7 +6,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Concurrency_6 {
+class Concurrency_2_5 {
     public static void main(String[] args) {
         ArrayList l = new ArrayList();
         l.add("A");
@@ -24,7 +24,7 @@ public class Concurrency_6 {
     }
 }
 
-class ArrayListRemoveExample{
+class ArrayListRemove2_5{
     public static void main(String[] args) {
         ArrayList <Integer> al =  new ArrayList();
         al.add(2);
@@ -43,7 +43,7 @@ class ArrayListRemoveExample{
         System.out.println("List after remove operation : " + al);
     }
 }
-class CopyOnWriteArrayListRemoveExample{
+class CopyOnWriteArrayList2_5{
     public static void main(String[] args) {
         CopyOnWriteArrayList <Integer> al =  new CopyOnWriteArrayList();
         al.add(2);
@@ -64,7 +64,7 @@ class CopyOnWriteArrayListRemoveExample{
 }
 
 
-class Concurrency_6_2 {
+class Concurrency_2_5_1 {
     public static void main(String[] args) {
         CopyOnWriteArrayList cowl = new CopyOnWriteArrayList();
         cowl.add(4);
@@ -77,7 +77,7 @@ class Concurrency_6_2 {
 }
 
 
-class Concurrency_6_3 {
+class Concurrency_2_5_2 {
     public static void main(String[] args) {
         CopyOnWriteArrayList cowl = new CopyOnWriteArrayList();
         cowl.add("A");
@@ -93,7 +93,7 @@ class Concurrency_6_3 {
     }
 }
 
-class Concurrency_6_4 {
+class Concurrency_2_5_3 {
     public static void main(String[] args) {
         ArrayList cowl = new ArrayList();
         cowl.add("A");
@@ -109,7 +109,7 @@ class Concurrency_6_4 {
     }
 }
 
-class CopyOnWriteArrayListIteratorExample {
+class CopyOnWriteArrayListIterator_2_5_4 {
     public static void main(String[] args) {
         CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();
         list.add("Apple");
@@ -133,7 +133,7 @@ class CopyOnWriteArrayListIteratorExample {
 }
 
 
-class ArrayListIteratorExample {
+class ArrayListIterator_2_5_5 {
     public static void main(String[] args) {
         ArrayList<String> list = new ArrayList<>();
         list.add("Apple");
@@ -162,36 +162,36 @@ class ArrayListIteratorExample {
     }
 }
 
-class Set_Example_C_6{
-    static Set<Employee_C_6> set =  new HashSet<>();
+class Set_Example_2_5_6{
+    static Set<Employee_2_5> set =  new HashSet<>();
     public static void main(String[] args) {
-        set.add(new Employee_C_6(1, "ABC"));
-        set.add(new Employee_C_6(2, "DEF"));
-        set.add(new Employee_C_6(2, "DEF"));
+        set.add(new Employee_2_5(1, "ABC"));
+        set.add(new Employee_2_5(2, "DEF"));
+        set.add(new Employee_2_5(2, "DEF"));
         System.out.println(set.size());
-        System.out.println(set.contains(new Employee_C_6(1, "ABC")));
+        System.out.println(set.contains(new Employee_2_5(1, "ABC")));
     }
 }
 
 class List_Example_C_6{
-    static List<Employee_C_6> list =  new ArrayList<>();
+    static List<Employee_2_5> list =  new ArrayList<>();
 
     public static void main(String[] args) {
-        list.add(new Employee_C_6(1, "ABC"));
-        list.add(new Employee_C_6(2, "DEF"));
-        list.add(new Employee_C_6(2, "DEF"));
+        list.add(new Employee_2_5(1, "ABC"));
+        list.add(new Employee_2_5(2, "DEF"));
+        list.add(new Employee_2_5(2, "DEF"));
         System.out.println(list.size());
-        System.out.println(list.contains(new Employee_C_6(1, "ABC")));
+        System.out.println(list.contains(new Employee_2_5(1, "ABC")));
     }
 }
 
 
 
-class Employee_C_6{
+class Employee_2_5{
     private int id;
     private String name;
 
-    public Employee_C_6(int id, String name) {
+    public Employee_2_5(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -199,8 +199,8 @@ class Employee_C_6{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Employee_C_6)) return false;
-        Employee_C_6 that = (Employee_C_6) o;
+        if (!(o instanceof Employee_2_5)) return false;
+        Employee_2_5 that = (Employee_2_5) o;
         return id == that.id && name.equals(that.name);
     }
 
@@ -211,9 +211,9 @@ class Employee_C_6{
     }
 }
 
-class CopyOnWriteArraySetIteratorExample extends Thread{
+class CopyOnWriteArraySetIterator_2_5_6 extends Thread{
 
-        static CopyOnWriteArraySet<String> set = new CopyOnWriteArraySet<>();
+    static CopyOnWriteArraySet<String> set = new CopyOnWriteArraySet<>();
     @Override
     public void run() {
         try {
@@ -230,7 +230,7 @@ class CopyOnWriteArraySetIteratorExample extends Thread{
         set.add("Apple");
         set.add("Banana");
 
-        CopyOnWriteArraySetIteratorExample t = new CopyOnWriteArraySetIteratorExample();
+        CopyOnWriteArraySetIterator_2_5_6 t = new CopyOnWriteArraySetIterator_2_5_6();
         t.start();
 
         // Create an Iterator from the CopyOnWriteArraySet
@@ -277,7 +277,7 @@ class SetIteratorExample extends Thread{
         set.add("Apple");
         set.add("Banana");
 
-        CopyOnWriteArraySetIteratorExample t = new CopyOnWriteArraySetIteratorExample();
+        CopyOnWriteArraySetIterator_2_5_6 t = new CopyOnWriteArraySetIterator_2_5_6();
         t.start();
 
         // Create an Iterator from the CopyOnWriteArraySet
@@ -306,10 +306,10 @@ class SetIteratorExample extends Thread{
     }
 }
 
-class ExecutorDemo{
+class ExecutorDemo_2_5{
     public static void main(String[] args) {
         for(int i = 0; i<10;i++){
-            Thread t = new Thread(new Task());
+            Thread t = new Thread(new ExecutorDemo_2_5.Task());
             t.start();
         }
         System.out.println(" Thread name : " + Thread.currentThread().getName());
@@ -323,10 +323,10 @@ class ExecutorDemo{
     }
 }
 
-class PrintJob implements Runnable{
+class PrintJob_2_5 implements Runnable{
     private String name;
 
-    public PrintJob(String name) {
+    public PrintJob_2_5(String name) {
         this.name = name;
     }
 
@@ -343,13 +343,13 @@ class PrintJob implements Runnable{
 }
 class ExecutorDemo2{
     public static void main(String[] args) {
-        PrintJob [] pjob = {
-                new PrintJob("ABC"),
-                new PrintJob("DEF"),
-                new PrintJob("HIJ"),
-                new PrintJob("KLM"),
-                new PrintJob("OJK"),
-                new PrintJob("PFG"),
+        PrintJob_2_5[] pjob = {
+                new PrintJob_2_5("ABC"),
+                new PrintJob_2_5("DEF"),
+                new PrintJob_2_5("HIJ"),
+                new PrintJob_2_5("KLM"),
+                new PrintJob_2_5("OJK"),
+                new PrintJob_2_5("PFG"),
         };
         ExecutorService ex = Executors.newFixedThreadPool(3);
         Arrays.asList(pjob).forEach(ex::submit);
@@ -358,10 +358,3 @@ class ExecutorDemo2{
     }
 
 }
-
-
-
-
-
-
-
