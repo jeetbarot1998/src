@@ -109,56 +109,19 @@ class Concurrency_2_5_3 {
     }
 }
 
-class CopyOnWriteArrayListIterator_2_5_4 {
-    public static void main(String[] args) {
-        CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();
-        list.add("Apple");
-        list.add("Banana");
-
-        // Create a ListIterator from the CopyOnWriteArrayList
-        ListIterator<String> iterator = list.listIterator();
-
-        // Add an element using the ListIterator reference
-        iterator.add("Orange");
-
-        System.out.println("List after adding element using ListIterator: " + list);
-
-        try {
-            // Attempt to add an element directly using the CopyOnWriteArrayList object
-            list.add("Grapes"); // This will throw UnsupportedOperationException
-        } catch (UnsupportedOperationException e) {
-            System.out.println("UnsupportedOperationException: Cannot add directly using CopyOnWriteArrayList");
-        }
-    }
-}
-
-
 class ArrayListIterator_2_5_5 {
     public static void main(String[] args) {
         ArrayList<String> list = new ArrayList<>();
         list.add("Apple");
         list.add("Banana");
 
-        // Create a ListIterator from the ArrayList
         ListIterator<String> iterator = list.listIterator();
-
-        // Add an element using the ListIterator reference
         iterator.add("Orange");
 
         System.out.println("List after adding element using ListIterator: " + list);
 
         // Add an element directly using the ArrayList object
         list.add("Grapes");
-
-        System.out.println("List after adding element directly using ArrayList: " + list);
-        System.out.println("Once you have taken a snapshot of the AL in an Iterator, \n" +
-                "You can use both the iterator object and the original list\n" +
-                " object to add any element to the AL. It will not give \n" +
-                "UnsupportedOperationException");
-        System.out.println("Once you have taken a snapshot of the COWL in\n" +
-                " an Iterator, You can only use both the iterator object\n" +
-                " to add any element to the COWL. If you use original \n" +
-                "COWL object It will throw UnsupportedOperationException");
     }
 }
 
@@ -172,19 +135,6 @@ class Set_Example_2_5_6{
         System.out.println(set.contains(new Employee_2_5(1, "ABC")));
     }
 }
-
-class List_Example_C_6{
-    static List<Employee_2_5> list =  new ArrayList<>();
-
-    public static void main(String[] args) {
-        list.add(new Employee_2_5(1, "ABC"));
-        list.add(new Employee_2_5(2, "DEF"));
-        list.add(new Employee_2_5(2, "DEF"));
-        System.out.println(list.size());
-        System.out.println(list.contains(new Employee_2_5(1, "ABC")));
-    }
-}
-
 
 
 class Employee_2_5{
